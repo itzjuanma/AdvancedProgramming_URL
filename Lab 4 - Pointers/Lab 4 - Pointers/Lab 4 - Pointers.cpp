@@ -1,17 +1,69 @@
 #include <iostream>
-#include <string.h>
+#include <ctime>
 using namespace std;
 
-int main() {
+
+
+int main()
+{
     string pista[70] = { "-", "-", "-", "-", "-","-", "-", "-", "-", "-","-", "-", "-", "-", "-","-", "-", "-", "-", "-","-", "-", "-", "-", "-","-", "-", "-", "-", "-","-", "-", "-", "-", "-","-", "-", "-", "-", "-","-", "-", "-", "-", "-","-", "-", "-", "-", "-","-", "-", "-", "-", "-","-", "-", "-", "-", "-","-", "-", "-", "-", "-","-", "-", "-", "-", "-" };
-    pista[69] = 'T';
-    pista[4] = 'H';
 
     int* posConejo;
     int* posTortuga;
 
+    int poSimpleConejo = 0;
+    int poSimpleposTortuga = 0;
+
+    int posAntiguaConejo = 0;
+    int posAntiguaTortuga = 0;
 
 
-    for (string i : pista)
-        std::cout << i << ' ';
+    srand(time(NULL));
+    int i, n, aleatorioConejo, aleatorioTortuga, DESDE = 1, HASTA = 10;
+
+    for (i = 1; i <= 1; i++)
+    {
+
+        pista[posAntiguaConejo] = '-';
+        pista[posAntiguaTortuga] = '-';
+
+
+        aleatorioConejo = rand() % (HASTA - DESDE + 1) + DESDE;
+        aleatorioTortuga = rand() % (HASTA - DESDE + 1) + DESDE;
+
+
+        if (aleatorioTortuga <= 5) {
+            //  paso velor tortuga avanza 3 cuados a la derecha
+            int posSiguienteTortuga = poSimpleConejo + 3;
+            pista[posSiguienteTortuga] = 'T';
+            posAntiguaTortuga = posSiguienteTortuga;
+        }
+        else if ((aleatorioTortuga <= 7) && (aleatorioTortuga > 5)) {
+            //  resbalon tortuga avanza 6 cuados a la izquierda
+            
+            int posSiguienteTortuga = poSimpleConejo - 6;
+            pista[posSiguienteTortuga] = 'T';
+            posAntiguaTortuga = posSiguienteTortuga;
+        }
+        else {
+            //  paso lento tortuga avanza 1 cuados a la derecha
+            int posSiguienteTortuga = poSimpleConejo + 1;
+            pista[posSiguienteTortuga] = 'T';
+            posAntiguaTortuga = posSiguienteTortuga;
+        }
+
+
+
+
+
+
+        for (string i : pista) {
+
+            std::cout << i << ' ';
+        }
+
+
+    }
+    cout << endl;
+    system("pause");
 }
