@@ -41,7 +41,7 @@ void mostrarCola(Nodo*& inicioCola) {
     // creando una copia de la pila
     Nodo* a = inicioCola;
     while (a != NULL) {
-        std::cout << "Canción: " << a->dato << "\n";
+        std::cout << "Cancion: " << a->dato << "\n";
         a = a->siguiente;
     }
 };
@@ -92,7 +92,7 @@ void agregarCancionFila(Nodo*& inicioCola, Nodo*& finalCola)
     string nameC;
     string nameA;
     string tot;
-    cout << "Nombre de la Canción: ";
+    cout << "Nombre de la Cancion: ";
     getline(std::cin, nameC, '\n');
 
     cout << "Nombre del Artista: ";
@@ -118,61 +118,68 @@ void menu() {
 
     do {
         if (menuPrincipal == 1) {
-            cout << "PLATAFORMA PARTY MIX: MENÚ PRINCIPAL\n\n";
-            cout << "1 Funciones de Playlist \n";
-            cout << "2 Funciones de Fila de Reproducción\n";
-            cout << "3 Salir del Programa\n";
-            cout << "Opcion: ";
+            cout << "PLATAFORMA PARTY MIX: MENU PRINCIPAL\n\n";
+            cout << "[ 1 ] Funciones de Playlist \n";
+            cout << "[ 2 ] Funciones de Fila de Reproduccion\n";
+            cout << "[ 3 ] Salir del Programa\n";
+            cout << "\nOpcion: ";
             getline(std::cin, opc, '\n');
-            system("clear");
+            system("cls");
 
-        }
-        else {
             if (opc == "1") {
-
+                cout << "PLATAFORMA PARTY MIX: PLAYLIST \n\n";
+                menuPrincipal = 2;
             }
             else if (opc == "2") {
-
-                cout << "PLATAFORMA PARTY MIX: FILA REPRODUCCIÓN \n\n";
-                // cout<< "1 Crear una nueva fila de reproducción \n";
-                cout << "1 Agregar una canción a la fila de reporducción\n";
-                cout << "2 Eliminar la primera canción  de la cola de la fila de reproducción\n";
-                cout << "3 Sincronizar fila de reproduccion con playlist \n";
-                cout << "4 Mostrar toda la fila de reproducción.\n";
+                menuPrincipal = 3;
+                cout << "PLATAFORMA PARTY MIX: FILA REPRODUCCION \n\n";
+                // cout<< "1 Crear una nueva fila de reproduccion \n";
+                cout << "[ 1 ] Agregar una cancion a la fila de reproduccion\n";
+                cout << "[ 2 ] Eliminar la primera cancion  de la cola de la fila de reproduccion\n";
+                cout << "[ 3 ] Sincronizar fila de reproduccion con playlist \n";
+                cout << "[ 4 ] Mostrar toda la fila de reproduccion.\n";
+                cout << "[ 7 ] Regresar al menu principal\n\n";
 
                 cout << "Opcion: ";
                 getline(std::cin, opc1, '\n');
 
-
-
                 if (opc1 == "1") {
-                    system("clear");
-                    cout << "FILA DE REPRODUCCIÓN: Añadir Canción\n";
+                    system("cls");
+                    cout << "FILA DE REPRODUCCION: Anadir Cancion\n\n";
                     agregarCancionFila(frenteCola, finalCola);
-
-                    system("clear");
-
+                    cout << "\nCancion anadida satisfactoriamente, presione ENTER para regresar al menu";
+                    cin.get();
+                    system("cls");
                 }
                 else if (opc1 == "2") {
-                    system("clear");
+                    system("cls");
                     eliminarCola(frenteCola, finalCola, output);
-                    system("clear");
+                    cout << "\nCancion eliminada satisfactoriamente, presione ENTER para regresar al menu";
+                    cin.get();
+                    system("cls");
                 }
                 else if (opc1 == "3") {
-                    system("clear");
-                    cout << "FILA DE REPRODUCCIÓN: Añadir Canción\n";
-                    system("clear");
-
-
+                    system("cls");
+                    cout << "FILA DE REPRODUCCION: Mostrar Fila de Reproduccion\n\n";
+                    system("cls");
                 }
                 else if (opc1 == "4") {
-                    system("clear");
-
-                    cout << "FILA DE REPRODUCCIÓN: Mostrar Canciones dentro de Fila de Reproducción \n ";
+                    system("cls");
+                    cout << "FILA DE REPRODUCCION: Mostrar Canciones dentro de Fila de Reproduccion\n\n";
                     mostrarCola(frenteCola);
+                    cout << "\nPresione ENTER para regresar al menu";
+                    cin.get();
+                    system("cls");
                 }
                 else if (opc1 == "5") {
-                    system("clear");
+                    system("cls");
+                }
+                else if (opc1 == "6") {
+                    system("cls");
+                }
+                else if (opc1 == "7") {
+                    system("cls");
+                    menuPrincipal = 1;
                 }
 
             }
@@ -180,8 +187,95 @@ void menu() {
 
             }
             else {
-
+                cout << "PLATAFORMA PARTY MIX: PLAYLIST \n\n";
             }
+        }
+        else if (menuPrincipal == 2) {
+        }
+
+        else if (menuPrincipal == 3) {
+            cout << "PLATAFORMA PARTY MIX: FILA REPRODUCCION \n\n";
+            // cout<< "1 Crear una nueva fila de reproduccion \n";
+            cout << "[ 1 ] Agregar una cancion a la fila de reproduccion\n";
+            cout << "[ 2 ] Eliminar la primera cancion  de la cola de la fila de reproduccion\n";
+            cout << "[ 3 ] Sincronizar fila de reproduccion con playlist \n";
+            cout << "[ 4 ] Mostrar toda la fila de reproduccion.\n";
+            cout << "[ 7 ] Regresar al menu principal\n\n";
+
+            cout << "Opcion: ";
+            getline(std::cin, opc1, '\n');
+
+            if (opc1 == "1") {
+                system("cls");
+                cout << "FILA DE REPRODUCCION: Anadir Cancion\n";
+                agregarCancionFila(frenteCola, finalCola);
+                cout << "\nCancion anadida satisfactoriamente, presione ENTER para regresar al menu";
+                cin.get();
+                system("cls");
+            }
+            else if (opc1 == "2") {
+                system("cls");
+                eliminarCola(frenteCola, finalCola, output);
+                cout << "\nCancion eliminada satisfactoriamente, presione ENTER para regresar al menu";
+                cin.get();
+                system("cls");
+            }
+            else if (opc1 == "3") {
+                system("cls");
+                cout << "FILA DE REPRODUCCION: Mostrar Fila de Reproduccion\n";
+                system("cls");
+            }
+            else if (opc1 == "4") {
+                system("cls");
+                cout << "FILA DE REPRODUCCION: Mostrar Canciones dentro de Fila de Reproduccion\n\n";
+                mostrarCola(frenteCola);
+                cout << "\nPresione ENTER para regresar al menu";
+                cin.get();
+                system("cls");
+            }
+            else if (opc1 == "5") {
+                system("cls");
+            }
+            else if (opc1 == "6") {
+                system("cls");
+            }
+            else if (opc1 == "7") {
+                system("cls");
+                menuPrincipal = 1;
+            }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
         }
 
@@ -194,7 +288,7 @@ void menu() {
 int main() {
     string valorUsuario;
 
-    // Declarando una variable que puede almacenar la dirección de una variable de tipo Nodo.
+    // Declarando una variable que puede almacenar la direccion de una variable de tipo Nodo.
     // Nodo *pila = NULL;
 
     // std::cout << "Hello World!\n";
