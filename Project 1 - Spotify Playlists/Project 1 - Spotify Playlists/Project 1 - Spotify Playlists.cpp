@@ -16,7 +16,7 @@ struct Nodo {
 
 //CREAR PILA 
 
-void agregarPila(Nodo*& pila, string n) {
+void PilaPokemones(Nodo*& pila, string n) {
     Nodo* nuevo_nodo = new Nodo();
     nuevo_nodo->dato = n;
     nuevo_nodo->siguiente = pila;
@@ -24,7 +24,7 @@ void agregarPila(Nodo*& pila, string n) {
 };
 
 //SACAR EL PRIMER VALOR DE LA PILA
-void sacarPila(Nodo*& pila, string& n) {
+void sacarPilaPokemones(Nodo*& pila, string& n) {
     Nodo* aux = pila;
     n = aux->dato;
     pila = aux->siguiente;
@@ -32,7 +32,7 @@ void sacarPila(Nodo*& pila, string& n) {
 };
 
 //MOSTRAR LA PILA
-void mostrarPila(Nodo*& pila) {
+void mostrarPilaPokemones(Nodo*& pila) {
 
     Nodo* a = pila;
     while (a != NULL) {
@@ -94,9 +94,9 @@ void bubbleSortCancionPila(Nodo*& pila, string optOrder) {
         cout << "Orden descendente: \n";
         for (int i = 0; i < sizePila; i++) {
             string word = listaCanciones[i] + "-" + listaArtistas[i];
-            agregarPila(pila, word);
+            PilaPokemones(pila, word);
         }
-        mostrarPila(pila);
+        mostrarPilaPokemones(pila);
     }
     else {
         pila = NULL;
@@ -104,9 +104,9 @@ void bubbleSortCancionPila(Nodo*& pila, string optOrder) {
         cout << "Orden ascendente: \n";
         for (int i = sizePila - 1; i >= 0; i--) {
             string word = listaCanciones[i] + "-" + listaArtistas[i];
-            agregarPila(pila, word);
+            PilaPokemones(pila, word);
         }
-        mostrarPila(pila);
+        mostrarPilaPokemones(pila);
     }
 };
 
@@ -165,9 +165,9 @@ void bubbleSortArtistaPila(Nodo*& pila, string optOrder) {
         cout << "Orden descendente: \n";
         for (int i = 0; i < sizePila; i++) {
             string word = listaCanciones[i] + "-" + listaArtistas[i];
-            agregarPila(pila, word);
+            PilaPokemones(pila, word);
         }
-        mostrarPila(pila);
+        mostrarPilaPokemones(pila);
     }
     else {
         pila = NULL;
@@ -175,9 +175,9 @@ void bubbleSortArtistaPila(Nodo*& pila, string optOrder) {
         cout << "Orden ascendente: \n";
         for (int i = sizePila - 1; i >= 0; i--) {
             string word = listaCanciones[i] + "-" + listaArtistas[i];
-            agregarPila(pila, word);
+            PilaPokemones(pila, word);
         }
-        mostrarPila(pila);
+        mostrarPilaPokemones(pila);
     }
 };
 
@@ -263,10 +263,10 @@ void filaAPlaylis(Nodo*& inicioCola, Nodo*& pila) {
     pila = NULL;
     Nodo* a = inicioCola;
     while (a != NULL) {
-        agregarPila(pila, a->dato);
+        PilaPokemones(pila, a->dato);
         a = a->siguiente;
     }
-    mostrarPila(pila);
+    mostrarPilaPokemones(pila);
 
 };
 
@@ -302,7 +302,7 @@ void read_csv_words(Nodo*& pila, string csvPath)
                 cout << "El archivo contiene un espacio vacio, una o mas canciones no se agregaron a la playlist\n";
             }
             else {
-                agregarPila(pila, word);
+                PilaPokemones(pila, word);
             }
 
         }
@@ -325,17 +325,17 @@ void artistaDesconocido(Nodo*& pila) {
         if (artista == "") {
             string noa = "desconocido";
             string w = nombreCancion + "-" + noa;
-            agregarPila(pila, w);
+            PilaPokemones(pila, w);
         }
         else {
             if (saveWord.find("-") == -1) {
                 // Es decir que no encontro el separador por lo que el artista es desconocido.
                 string des = "desconocido";
                 string o = nombreCancion + "-" + des;
-                agregarPila(pila, o);
+                PilaPokemones(pila, o);
             }
             else {
-                agregarPila(pila, saveWord);
+                PilaPokemones(pila, saveWord);
             }
         }
         a = a->siguiente;
@@ -544,7 +544,7 @@ void menu() {
                 else if (opc1 == "5") {
                     system("cls");
                     string cancionReporducindo;
-                    sacarPila(pila, cancionReporducindo);
+                    sacarPilaPokemones(pila, cancionReporducindo);
                     std::cout << "Reproduciendo canción " << cancionReporducindo;
                     cout << "\nPresione ENTER para regresar al menu";
                     cin.get();
@@ -634,7 +634,7 @@ void menu() {
                 system("cls");
                 cout << "PLAYLIST: Reproducir Cancion\n\n";
                 string ss;
-                sacarPila(pila, ss);
+                sacarPilaPokemones(pila, ss);
                 std::cout << "Reproduciendo Cancion, Se Sacara de la Playlist\n\n " << "              - " << ss;
                 cout << "\n\nPresione ENTER para regresar al menu de Playlist\n\n";
                 cin.get();
@@ -677,7 +677,7 @@ void menu() {
              
                 cout << "PLAYLIST: Mostrar Playlist\n\n";
                 cout << "La playlist Elegida es: \n\n";
-                mostrarPila(pila);
+                mostrarPilaPokemones(pila);
                 cout << "\n\nPresione ENTER para regresar al menu de Playlist";
                 cin.get();
                 system("cls");
@@ -767,7 +767,7 @@ void menu() {
             else if (opc1 == "5") {
                 system("cls");
                 string cancionReporducindo;
-                sacarPila(pila, cancionReporducindo);
+                sacarPilaPokemones(pila, cancionReporducindo);
                 std::cout << "Reproduciendo canción " << cancionReporducindo;
             }
             else if (opc1 == "6") {
@@ -794,12 +794,12 @@ int main() {
 
     // std::cout << "Hello World!\n";
     // std::cin>>valorUsuario;
-    // agregarPila(pila, valorUsuario);
+    // PilaPokemones(pila, valorUsuario);
 
 
 
     // while(pila != NULL){
-    //   sacarPila(pila, ss);
+    //   sacarPilaPokemones(pila, ss);
     //   std::cout << "pilaaaaad! "<<ss<<" sdf";
     // }
 
