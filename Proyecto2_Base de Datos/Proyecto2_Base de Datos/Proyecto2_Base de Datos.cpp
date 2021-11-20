@@ -690,6 +690,7 @@ void menu() {
         cout << "[ 1 ] Estudiantes de Pregrado \n";
         cout << "[ 2 ] Estudiantes de Posgrado \n\n";
         cout << "[ 3 ] Conocer Promedio de un Estudiante \n\n";
+        cout << "[ 4 ] Conocer Numero de Estudiantes \n\n";
         cout << "[ 7 ] Regresar al menu principal\n\n";
         cout << "Opcion: ";
         getline(std::cin, opc1, '\n');
@@ -709,6 +710,16 @@ void menu() {
         cout << "Opcion: ";
         getline(std::cin, opc1, '\n');
     }
+
+//MOSTRAR LISTADO DE ESTUDIANTES
+        if (opc1 == "1") {
+            system("cls");
+            cout << "ESTUDIANTES: Anadir Cancion\n\n";
+
+            cout << "\nCancion anadida satisfactoriamente, presione ENTER para regresar al menu";
+            cin.get();
+            system("cls");
+        }
 
 
 //REQUISITOS FUNCIONALES DE ESTUDIANTES de Postgrado
@@ -754,6 +765,24 @@ void menu() {
     }
 
 
+
+
+
+
+
+//CALCULAR SALARIO PROMEDIO
+
+    else if (opc1 == "3") {
+        menuPrincipal = 3;
+        cout << "PLATAFORMA UNIVERSIDAD: Calculo de Salario de Promedio \n\n";
+        cout << "[ 1 ] Trabajadores Docentes\n";
+        cout << "[ 2 ] Trabajadores No Docentes\n";
+        cout << "[ 3 ] Ambos tipos de Trabajadores\n";
+        cout << "[ 7 ] Regresar al menu principal\n\n";
+
+        cout << "Opcion: ";
+        getline(std::cin, opc1, '\n');
+    }
 
     // read_csv_workers("./traba_peque.csv");
 
